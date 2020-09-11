@@ -12,6 +12,7 @@ import {
 const initialState = {
   smurfs: [],
   fetching: true,
+  error: false,
 }
 
 export default function reducer(state = initialState, action) {
@@ -19,6 +20,7 @@ export default function reducer(state = initialState, action) {
     case FETCH_SMURFS_START:
       return {...state, fetching: true}
     case FETCH_SMURFS_SUCCESS:
+    case POST_SMURF_SUCCESS:
       return {
         ...state,
         fetching: false,
@@ -28,6 +30,16 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         fetching: false,
+        error: action.payload,
+      }
+    case POST_SMURF_START:
+      return {
+        ...state,
+        error: false,
+      }
+    case POST_SMURF_FAIL:
+      return {
+        ...state,
         error: action.payload,
       }
     default:

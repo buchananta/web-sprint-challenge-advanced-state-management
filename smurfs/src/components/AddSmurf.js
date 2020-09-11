@@ -54,12 +54,14 @@ function AddSmurf(props) {
               </label>
               <button onClick={(e) => submit(e)} >Submit</button>
             </form>
+            {props.error && <h3>{props.error.toString()}</h3>}
           </div>
         )
  
 }
 function mapStateToProps(state) {
   return {
+    error: state.error,
   }
 }
 
