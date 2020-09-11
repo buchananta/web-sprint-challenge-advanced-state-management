@@ -9,16 +9,17 @@ function Smurfs(props) {
   return <p>Fetching Data...</p>
   }
   return (
-    props.smurfs.map((smurf) => {
+    <div className='smurf-container'>
+    {props.smurfs.map((smurf) => {
         return (
-          <div key={smurf.id}>
+          <div className='smurf' key={smurf.id}>
           <h3>{smurf.name}</h3>
           <p>age: {smurf.age}</p>
           <p>height: {smurf.height}</p>
           </div>
         )
-      })
-    
+      })}
+    </div> 
   )
 }
 function mapStateToProps(state) {
